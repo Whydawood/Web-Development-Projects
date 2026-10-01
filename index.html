@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Dawood Hussain | Software Engineer</title>
+    <style>
+        :root {
+            --ink: #172033;
+            --muted: #657089;
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --surface: #ffffff;
+            --soft: #f4f6fb;
+            --line: #e5e9f2;
+            --shadow: 0 20px 55px rgba(24, 32, 56, 0.11);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 8% 5%, rgba(99, 102, 241, 0.14), transparent 26rem),
+                linear-gradient(180deg, #f8f9fd 0%, #eef1f8 100%);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.7;
+        }
+
+        .page {
+            width: min(1080px, calc(100% - 32px));
+            margin: 48px auto;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 32px;
+            align-items: center;
+            padding: clamp(28px, 6vw, 64px);
+            color: #fff;
+            border-radius: 28px;
+            background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 55%, #6366f1 100%);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            width: 260px;
+            height: 260px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 50%;
+            position: absolute;
+            right: -70px;
+            top: -90px;
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            color: #c7d2fe;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        h1, h2 {
+            line-height: 1.2;
+            margin-top: 0;
+        }
+
+        h1 {
+            margin-bottom: 16px;
+            font-size: clamp(2.2rem, 6vw, 4.6rem);
+            letter-spacing: -0.05em;
+        }
+
+        h2 {
+            margin-bottom: 22px;
+            font-size: 1.45rem;
+        }
+
+        .hero-intro {
+            max-width: 630px;
+            margin: 0;
+            color: #e0e7ff;
+            font-size: 1.08rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin-top: 25px;
+        }
+
+        a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .hero a {
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        .hero a:hover {
+            color: #c7d2fe;
+        }
+
+        .profile-image {
+            width: clamp(150px, 20vw, 210px);
+            height: clamp(150px, 20vw, 210px);
+            object-fit: cover;
+            border: 7px solid rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.28);
+            position: relative;
+            z-index: 1;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 22px;
+        }
+
+        section {
+            padding: 30px;
+            border: 1px solid rgba(229, 233, 242, 0.85);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 24px rgba(24, 32, 56, 0.04);
+        }
+
+        section.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-heading::before {
+            content: "";
+            width: 5px;
+            height: 25px;
+            border-radius: 99px;
+            background: var(--primary);
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li + li {
+            margin-top: 12px;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tag-list li {
+            margin: 0;
+            padding: 8px 13px;
+            color: #3730a3;
+            border: 1px solid #c7d2fe;
+            border-radius: 999px;
+            background: #eef2ff;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .project-list li {
+            margin: 0;
+            padding: 18px;
+            border-left: 3px solid var(--primary);
+            border-radius: 8px;
+            background: var(--soft);
+        }
+
+        details {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        details:last-child {
+            border-bottom: 0;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        details p {
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
+        footer {
+            padding: 28px 0 8px;
+            color: var(--muted);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 700px) {
+            .page {
+                width: min(100% - 20px, 560px);
+                margin: 20px auto;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-image {
+                grid-row: 1;
+                justify-self: center;
+            }
+
+            .contact-links {
+                justify-content: center;
+            }
+
+            main,
+            .project-list {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="page">
+        <header class="hero">
+            <div>
+                <p class="eyebrow">Software Engineer · Portfolio</p>
+                <h1>Muhammad Dawood Hussain</h1>
+                <p class="hero-intro">I build efficient, scalable software solutions and enjoy turning complex problems into thoughtful digital experiences.</p>
+                <nav class="contact-links" aria-label="Contact links">
+                    <a href="mailto:muhammad.dawood.hussain@example.com">Email me</a>
+                    <a href="https://www.linkedin.com/in/muhammad-dawood-hussain" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/muhammad-dawood-hussain" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </nav>
+            </div>
+            <img class="profile-image" src="Profile.JPG" alt="Portrait of Muhammad Dawood Hussain" width="200" height="200">
+        </header>
+
+        <main>
+            <section>
+                <h2 class="section-heading">Education</h2>
+
+                <ul>
+                    <li><strong>BSc Computer Science</strong><br>XYZ University · 2020–2024</li>
+                    <li><strong>High School Diploma</strong><br>ABC High School · 2016–2020</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="section-heading">Work Experience</h2>
+                <ul>
+                    <li><strong>Software Engineer</strong><br>DEF Corp · 2024–Present</li>
+                    <li><strong>Engineering Intern</strong><br>GHI Inc · 2023</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="section-heading">Skills</h2>
+                <ul class="tag-list">
+                    <li>Python</li><li>Java</li><li>C++</li><li>HTML &amp; CSS</li>
+                    <li>JavaScript</li><li>React</li><li>MySQL</li><li>MongoDB</li><li>Git</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="section-heading">Achievements</h2>
+                <ul>
+                    <li>Dean's List, XYZ University · 2020–2024</li>
+                    <li>Hackathon Winner, ABC University · 2022</li>
+                </ul>
+            </section>
+
+            <section class="full-width">
+                <h2 class="section-heading">Projects</h2>
+                <ul class="project-list">
+                    <li><strong>Personal Portfolio Website</strong><br>Built a responsive portfolio with HTML, CSS, and JavaScript.</li>
+                    <li><strong>E-commerce Platform</strong><br>Built a full-stack e-commerce platform using React.</li>
+                </ul>
+            </section>
+
+            <section class="full-width">
+                <h2 class="section-heading">Frequently Asked Questions</h2>
+
+                <details>
+                    <summary>What programming languages are you proficient in?</summary>
+                    <p>I am proficient in Python, Java, and C++. I have experience working with these languages on various projects and have a strong understanding of their syntax and best practices.</p>
+                </details>
+
+                <details>
+                    <summary>What web development technologies do you have experience with?</summary>
+                    <p>I have experience with HTML, CSS, JavaScript, and React. I have built responsive websites and web applications using these technologies and am familiar with front-end development best practices.</p>
+                </details>
+
+                <details>
+                    <summary>What databases have you worked with?</summary>
+                    <p>I have worked with MySQL and MongoDB. I have experience designing and managing databases, writing queries, and optimizing database performance.</p>
+                </details>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Muhammad Dawood Hussain. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
